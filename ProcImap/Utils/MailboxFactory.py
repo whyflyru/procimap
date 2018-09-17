@@ -215,11 +215,11 @@ def imap_pathgenerator(optionsdict):
         username = optionsdict['username']
         password = optionsdict['password']
         ssl = True
-        if optionsdict.has_key('ssl'):
+        if 'ssl' in optionsdict:
             if optionsdict['ssl'].lower() in ['0', 'false', 'no']:
                 ssl = False
         port = None
-        if optionsdict.has_key('port'):
+        if 'port' in optionsdict:
             port = int(optionsdict['port'])
     except KeyError:
         raise MailboxOptionsNotCompleteError(

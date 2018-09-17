@@ -47,7 +47,7 @@ def display(mailbox, uid, pager=DEFAULT_PAGER, headerfields=None):
     if headerfields is None:
         headerfields = ['Date', 'From', 'To', 'Subject']
     for field in headerfields:
-        if header.has_key(field):
+        if field in header:
             result += "%s: %s\n" % (field, header[field])
     result += "\n"
     result += body

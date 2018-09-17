@@ -16,11 +16,11 @@ mailbox = ImapMailbox((server, sys.argv[2]))
 backupsource = mbox(sys.argv[1], factory=ImapMessage)
 
 for message in backupsource:
-    if message.has_key("X-ProcImap-Imapflags"):
+    if "X-ProcImap-Imapflags" in message:
         message.flags_from_string(message["X-ProcImap-Imapflags"])
         del message["X-ProcImap-Imapflags"]
-    if message.has_key("X-ProcImap-ImapInternalDate"):
-        message. internaldate_from_string(message["X-ProcImap-ImapInternalDate"])
+    if "X-ProcImap-ImapInternalDate" in message:
+        message.internaldate_from_string(message["X-ProcImap-ImapInternalDate"])
         del message["X-ProcImap-ImapInternalDate"]
     mailbox.add(message)
 
