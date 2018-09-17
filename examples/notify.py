@@ -112,7 +112,7 @@ for uid in unread_mails.keys():
 # notify as necessary
 if len(unseen) > 0:
     for uid in unseen:
-        if unread_mails.has_key(uid):
+        if uid in unread_mails:
             if (int(time()) - unread_mails[uid][0]) > notifytimeout:
                 notify()
         else:

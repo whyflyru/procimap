@@ -72,7 +72,7 @@ class AddressListFile:
         """
         if lookupstring is None:
             return False
-        if self._cache.has_key(lookupstring):
+        if lookupstring in self._cache:
             return self._cache[lookupstring]
         if self._use_regexes:
             if self._inmemory:
@@ -158,7 +158,7 @@ class ReplacementListFile:
         """
         if searchstring is None:
             return None
-        if self._cache.has_key(searchstring):
+        if searchstring in self._cache:
             return self._cache[searchstring]
         if self._use_regexes:
             if self._inmemory:
@@ -179,7 +179,7 @@ class ReplacementListFile:
                 infile.close()
         else:
             if self._inmemory:
-                if self._data.has_key(searchstring):
+                if searchstring in self._data:
                     replacement = self._data[searchstring]
                     self._cache[searchstring] = replacement
                     return replacement
@@ -377,7 +377,7 @@ def unknown_to_ascii(inputstring):
                 totalcount = 0
                 for character in unistring:
                     totalcount += 1
-                    if xlate.has_key(character):
+                    if character in xlate:
                         # translated characters contribute with their defined
                         # weight
                         weight = xlate[character][1]
@@ -397,7 +397,7 @@ def unknown_to_ascii(inputstring):
             unistring = unicode(inputstring, found_encoding, 'replace')
     result = ''
     for character in unistring:
-        if xlate.has_key(character):
+        if character in xlate:
             result += xlate[character][0]
         elif ord(character) >= 0x80:
             pass

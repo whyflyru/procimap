@@ -246,7 +246,7 @@ def maildirflags_from_imap_message(message):
     }
     mappings = _reverse_mappings(mappings)
     for imapflag in imapflags:
-        if mappings.has_key(imapflag):
+        if imapflag in mappings:
             result += mappings[imapflag]
     return result
 
@@ -277,7 +277,7 @@ def mboxflags_from_imap_message(message):
     }
     mappings = _reverse_mappings(mappings)
     for imapflag in imapflags:
-        if mappings.has_key(imapflag):
+        if imapflag in mappings:
             result += mappings[imapflag]
     return result
 
@@ -304,7 +304,7 @@ def mhsequences_from_imap_message(message):
     }
     mappings = _reverse_mappings(mappings)
     for imapflag in imapflags:
-        if mappings.has_key(imapflag):
+        if imapflag in mappings:
             result.append(mappings[imapflag])
     return result
 
@@ -333,7 +333,7 @@ def babyllabels_from_imap_message(message):
     }
     mappings = _reverse_mappings(mappings)
     for imapflag in imapflags:
-        if mappings.has_key(imapflag):
+        if imapflag in mapping:
             result.append(mappings[imapflag])
     return result
 

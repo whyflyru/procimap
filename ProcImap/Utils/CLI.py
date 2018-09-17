@@ -89,9 +89,9 @@ class ProcImapOptParser(OptionParser):
                         help="Use FILE as the MailboxFactory config file "
                         "defining all the mailboxes for this program.", 
                         metavar="FILE")
-        if not args.has_key('formatter'):
+        if 'formatter' not in args:
             self.formatter = MyIndentedHelpFormatter()
-        if os.environ.has_key('PROC_IMAP_PROFILE'):
+        if 'PROC_IMAP_PROFILE' in os.environ:
             self.set_defaults(profile=os.environ['PROC_IMAP_PROFILE'])
 
     def parse_args(self, args=None, values=None):

@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name='ProcImap',
-      version='2.0.1wf',
+      version='2.0.2+whyfly.1',
       description='Python IMAP Library and Mail Processing Utility',
       author='Michael Goerz',
       author_email='goerz@physik.fu-berlin.de',
